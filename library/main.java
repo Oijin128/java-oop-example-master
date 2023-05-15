@@ -121,14 +121,7 @@ class main {
     System.out.print("name : ");
     member.name = scan.next();
 
-    for (Member existingMember : library.members) {
-      if (existingMember.id.equals(member.id)) {
-        System.out.println("Member with id " + member.id + " already exists");
-        return;
-      } else {
-        library.addMember(member);
-      }
-    }
+    library.addMember(member);
   }
 
   public static void addBook() {
@@ -139,15 +132,8 @@ class main {
 
     System.out.print("title : ");
     book.title = scan.next();
-
-    for (Book existingBook : library.books) {
-      if (existingBook.id.equals(book.id)) {
-        System.out.println("Book with id " + book.id + " already exists");
-        return;
-      } else {
-        library.addBook(book);
-      }
-    }
+    
+    library.addBook(book);
   }
   
 

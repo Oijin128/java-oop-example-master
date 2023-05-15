@@ -1,1 +1,1 @@
- System.out.println("wrong input");
+System.out.print("id member : ");
