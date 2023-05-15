@@ -30,14 +30,13 @@ class main {
       } else if (selectedMenu == 6) {
         returnBook();
       } else if (selectedMenu > 6 || selectedMenu < 1){
-        System.out.println("wrong input");
+      System.out.println("wrong input");
       }
 
       System.out.print("continue ? ");
       isContinue = scan.next();
     }
   }
-
 
   public static void showMenu() {
     System.out.println("================================");
