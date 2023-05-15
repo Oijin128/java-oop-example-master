@@ -1,1 +1,1 @@
-static enum
+ System.out.println("wrong input");
