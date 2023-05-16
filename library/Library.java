@@ -65,17 +65,16 @@ class Library {
 
 public void receiveBook(String bookId, String memberId) {
     Book borrowedBook = this.getBorrowedBookById(bookId);
-    if (borrowedBook == null) {
+    Member member = this.getMemberById(memberId);
+
+    if (member == null) {
+    System.out.println("Member tidak ditemukan");
+    } if (borrowedBook == null) {
       System.out.println("Buku tidak ditemukan");
     } else {
       this.books.add(borrowedBook);
       this.borrowedBooks.remove(borrowedBook);
-    }
     
-    Member member = this.getMemberById(memberId);
-    if (member == null) {
-      System.out.println("Member tidak ditemukan");
-    } else {
       int memberIndex = this.getMemberIndex(member);
       this.members.get(memberIndex).borrowedBooks.remove(borrowedBook);
   }
