@@ -29,7 +29,7 @@ class main {
         borrowBook();
       } else if (selectedMenu == 6) {
         returnBook();
-      } else if (selectedMenu > 6 || selectedMenu < 1){
+      } else if (selectedMenu > 6 || selectedMenu == 0){
       System.out.println("wrong input");
       }
 
@@ -92,11 +92,11 @@ class main {
       scan.nextLine();
     } catch (InputMismatchException e) {
       System.out.println("Hanya bisa menginput nomor.");
+      pilihan = -1;
       scan.next();
     }
     return pilihan;
   }
-
 
   public static void showBooks() {
     daftarbuku.daftar();
