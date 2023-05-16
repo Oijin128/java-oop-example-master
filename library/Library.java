@@ -7,7 +7,13 @@ class Library {
 
   public void addBook(Book book) {
     if (!isBookIdExist(book.id)) {
-      this.books.add(book);
+      for (Book borrowedBook : this.borrowedBooks) {
+        if (borrowedBook.id.equals(book.id)) {
+          System.out.println("Book id sudah ada dan sedang dipinjam");
+        } else {
+          this.books.add(book);
+        }
+       }
     }
   }
 
@@ -21,7 +27,7 @@ class Library {
     Boolean isExist = false;
     for (Book book : this.books) {
       if (book.id.equals(id)) {
-        System.out.println("Book id is already used");
+        System.out.println("Book id sudah terpakai");
         isExist = true;
       }
     }
@@ -32,7 +38,7 @@ class Library {
     Boolean isExist = false;
     for (Member member : this.members) {
       if (member.id.equals(id)) {
-        System.out.println("Member id is already used");
+        System.out.println("Member id sudah terpakai");
         isExist = true;
       }
     }
@@ -63,17 +69,15 @@ public void receiveBook(String bookId, String memberId) {
       System.out.println("Buku tidak ditemukan");
     } else {
       this.books.add(borrowedBook);
-    this.borrowedBooks.remove(borrowedBook);
+      this.borrowedBooks.remove(borrowedBook);
     }
     
-    
-
     Member member = this.getMemberById(memberId);
     if (member == null) {
       System.out.println("Member tidak ditemukan");
     } else {
-    int memberIndex = this.getMemberIndex(member);
-    this.members.get(memberIndex).borrowedBooks.remove(borrowedBook);
+      int memberIndex = this.getMemberIndex(member);
+      this.members.get(memberIndex).borrowedBooks.remove(borrowedBook);
   }
 }
 
