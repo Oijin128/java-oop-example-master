@@ -35,6 +35,7 @@ class main {
 
       System.out.print("continue ? ");
       isContinue = scan.next();
+      System.out.println("");
     }
   }
 
@@ -140,7 +141,7 @@ class main {
   
 
   public static void borrowBook() {
-    List.say();
+    daftarbuku.say();
     System.out.print("id member : ");
     String memberId = scan.next();
 
@@ -151,7 +152,7 @@ class main {
   }
 
   public static void returnBook() {
-    List.say();
+    daftarmember.say();
     System.out.print("id member : ");
     String memberId = scan.next();
 
