@@ -88,6 +88,7 @@ class main {
     try {
       System.out.print("choose menu : ");
       pilihan = scan.nextInt();
+      scan.nextLine();
     } catch (InputMismatchException e) {
       System.out.println("Hanya bisa menginput nomor.");
       scan.next();
@@ -113,13 +114,14 @@ class main {
   }
 
   public static void addMember() {
+    
     Member member = new Member();
 
     System.out.print("id : ");
-    member.id = scan.next();
-
+    member.id = scan.nextLine();
+    
     System.out.print("name : ");
-    member.name = scan.next();
+    member.name = scan.nextLine();
 
     library.addMember(member);
   }
@@ -128,10 +130,10 @@ class main {
     Book book = new Book();
 
     System.out.print("id : ");
-    book.id = scan.next();
+    book.id = scan.nextLine();
 
     System.out.print("title : ");
-    book.title = scan.next();
+    book.title = scan.nextLine();
     
     library.addBook(book);
   }
