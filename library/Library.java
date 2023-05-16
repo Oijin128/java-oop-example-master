@@ -48,7 +48,7 @@ class Library {
   public void giveBook(String bookId, String memberId) {
     Book book = this.getBookById(bookId);
     if (book == null) {
-      System.out.println("Buku tidak ditemukan");
+      System.out.println("Member tidak ditemukan");
     } else {
     this.borrowedBooks.add(book);
     this.books.remove(book);
@@ -56,7 +56,7 @@ class Library {
 
     Member member = this.getMemberById(memberId);
     if (member == null) {
-      System.out.println("Member tidak ditemukan");
+      System.out.println("Buku tidak ditemukan");
     } else {
     int memberIndex = this.getMemberIndex(member);
     this.members.get(memberIndex).borrowedBooks.add(book);
@@ -65,19 +65,20 @@ class Library {
 
 public void receiveBook(String bookId, String memberId) {
     Book borrowedBook = this.getBorrowedBookById(bookId);
-    Member member = this.getMemberById(memberId);
-
-    if (member == null) {
-    System.out.println("Member tidak ditemukan");
-    } if (borrowedBook == null) {
+    if (borrowedBook == null) {
       System.out.println("Buku tidak ditemukan");
     } else {
       this.books.add(borrowedBook);
       this.borrowedBooks.remove(borrowedBook);
-    
+
+    Member member = this.getMemberById(memberId);
+    if (member == null ) {
+      System.out.println("Member tidak ditemukan");
+    } else {
       int memberIndex = this.getMemberIndex(member);
       this.members.get(memberIndex).borrowedBooks.remove(borrowedBook);
   }
+}
 }
 
 private int getMemberIndex(Member member) {

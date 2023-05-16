@@ -148,14 +148,9 @@ class main {
     System.out.print("id book : ");
     String bookId = scan.next();
 
-    if (memberId == null){
-      System.out.println("Buku tidak ditemukan");
-    } else if (bookId == null) {
-      System.out.println("Member tidak ditemukan");
-      } else {
     library.giveBook(memberId, bookId);
   }
-  }
+
 
   public static void returnBook() {
     daftarmember.say();
