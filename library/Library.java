@@ -4,18 +4,12 @@ class Library {
   public ArrayList<Book> books = new ArrayList<Book>();
   private ArrayList<Book> borrowedBooks = new ArrayList<Book>();
   public ArrayList<Member> members = new ArrayList<Member>();
-
+  
   public void addBook(Book book) {
     if (!isBookIdExist(book.id)) {
-      for (Book borrowedBook : this.borrowedBooks) {
-        if (borrowedBook.id.equals(book.id)) {
-          System.out.println("Book id sudah ada dan sedang dipinjam");
-        } else {
           this.books.add(book);
         }
        }
-    }
-  }
 
   public void addMember(Member member) {
     if (!isMemberIdExist(member.id)) {
@@ -72,7 +66,7 @@ public void receiveBook(String bookId, String memberId) {
       this.borrowedBooks.remove(borrowedBook);
 
     Member member = this.getMemberById(memberId);
-    if (member == null ) {
+    if (member == null) {
       System.out.println("Member tidak ditemukan");
     } else {
       int memberIndex = this.getMemberIndex(member);
